@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  application:
+    build: .
+    restart: always
+    ports:
+      - 8888:8888
+    links:
+      - mongodb:database
+
+  mongodb:
+    image: "mongo:latest"
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - 27017:27017
