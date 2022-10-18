@@ -2,17 +2,17 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>agro.tech</groupId>
-  <artifactId>agro-e-tech</artifactId>
+  <groupId>com.betrybe</groupId>
+  <artifactId>agrotech-measure-shelter</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <maven.compiler.release>17</maven.compiler.release>
+    <maven.compiler.release>11</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.13.2.Final</quarkus.platform.version>
+    <quarkus.platform.version>2.11.1.Final</quarkus.platform.version>
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
   </properties>
@@ -25,12 +25,23 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>${quarkus.platform.group-id}</groupId>
+        <artifactId>quarkus-amazon-services-bom</artifactId>
+        <version>${quarkus.platform.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
   <dependencies>
-    <dependency>
+  	<dependency>
+  	  <groupId>org.testcontainers</groupId>
+  	  <artifactId>testcontainers</artifactId>
+  	</dependency>
+  	<dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
+      <artifactId>quarkus-junit5-mockito</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -38,20 +49,16 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-hibernate-validator</artifactId>
+      <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-reactive</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-jacoco</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-scheduler</artifactId>
-    </dependency>
+    	<groupId>io.quarkus</groupId>
+    	<artifactId>quarkus-hibernate-validator</artifactId>
+	</dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
@@ -66,9 +73,32 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
+	<dependency>
+    	<groupId>io.quarkus</groupId>
+    	<artifactId>quarkus-scheduler</artifactId>
+	</dependency>
   </dependencies>
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.8</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>${quarkus.platform.group-id}</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
@@ -126,6 +156,16 @@
   </build>
   <profiles>
     <profile>
+      <id>test</id>
+      <properties>
+        <env>test</env>
+        <gebEnv>test</gebEnv>
+        <jacoco.skip>false</jacoco.skip>
+        <maven.test.skip>false</maven.test.skip>
+        <skip.unit.tests>false</skip.unit.tests>
+      </properties>
+    </profile>
+    <profile>
       <id>native</id>
       <activation>
         <property>
@@ -138,4 +178,13 @@
       </properties>
     </profile>
   </profiles>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+      	<version>0.8.8</version>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>
