@@ -1,15 +1,12 @@
 package agro.tech.service;
 
-import org.bson.types.ObjectId;
-
 import agro.tech.exceptions.NotFoundException;
 import agro.tech.model.Isle;
 import agro.tech.repository.IsleRepository;
-
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
+import org.bson.types.ObjectId;
 
 @ApplicationScoped
 public class IsleService {
@@ -26,6 +23,8 @@ public class IsleService {
     isleRepository.persist(isle);
   }
 
+  /** Find isle by id.
+   */
   public Isle findById(String id) throws NotFoundException {
     Isle isle = isleRepository.findById(new ObjectId(id));
     if (isle == null) {
@@ -34,6 +33,8 @@ public class IsleService {
     return isle;
   }
 
+  /** Update isle by id.
+   */
   public Isle update(String id, Isle updated) throws NotFoundException {
     Isle isle = findById(id);
     if (isle == null) {
@@ -44,6 +45,8 @@ public class IsleService {
     return isle;
   }
 
+  /** Delete isle by id.
+   */
   public void delete(String id) throws NotFoundException {
     Isle isle = findById(id);
     if (isle == null) {
