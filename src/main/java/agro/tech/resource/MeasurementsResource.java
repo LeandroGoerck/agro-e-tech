@@ -30,3 +30,4 @@ public class MeasurementsResource {
   public List<Measurements> listAll() {
     return measurementsService.list();
   }
+}

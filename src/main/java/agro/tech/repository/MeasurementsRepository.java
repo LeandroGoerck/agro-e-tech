@@ -1,4 +1,4 @@
-package agro.tech.model.repository;
+package agro.tech.repository;
 
 import javax.enterprise.context.ApplicationScoped;
 import agro.tech.model.Measurements;
