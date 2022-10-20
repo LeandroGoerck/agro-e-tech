@@ -11,6 +11,65 @@ A aplicação deve ter as seguintes funcionalidades:
   - [x] Listar as medidas
   - [x] Criar uma nova medida para uma ilha
 
+#### Isle
+
+```http
+  GET /isles
+```
+
+Isle: {
+    id,
+    name,
+    status
+}
+
+```http
+  POST /isles
+```
+
+Isle: {
+    name,
+    status
+}
+
+``http
+  PUT /isles/{id}
+
+Isle: {
+    id,
+    name,
+    status
+}
+
+```http
+  DELETE /isles/{id}
+```
+
+#### Measurements
+
+```http
+  GET /measurements
+```
+
+Measurement: {
+    idIsle,
+    temperature,
+    soilHumidity,
+    airHumidity,
+    measuredAt
+}
+
+```http
+  POST /measurements
+```
+
+Measurement: {
+    idIsle,
+    temperature,
+    soilHumidity,
+    airHumidity,
+}
+
 ---
 
 # Sumário
@@ -160,7 +219,8 @@ O projeto está organizado e estruturado da seguinte maneira:
 Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
  - [Git](https://git-scm.com);
  - [Java](https://www.java.com/pt-BR/);
- - [Docker](https://www.docker.com/)
+ - [Quarkus](https://quarkus.io/);
+ - [Docker](https://www.docker.com/);
  - Um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/) ou outro de sua preferência;
 
 ---
