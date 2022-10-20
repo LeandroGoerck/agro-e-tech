@@ -199,6 +199,7 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
   ```
 
 #Autores
-@nathaliamiranda
-@LeandroGoerck
-@prgalhardo
+
+- [@nathaliamiranda](https://github.com/nathaliamiranda)
+- [@LeandroGoerck](https://www.github.com/LeandroGoerck)
+- [@prgalhardo](https://www.github.com/prgalhardo)
