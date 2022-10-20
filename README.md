@@ -32,8 +32,9 @@ Isle: {
     status
 }
 
-``http
+```http
   PUT /isles/{id}
+```
 
 Isle: {
     id,
