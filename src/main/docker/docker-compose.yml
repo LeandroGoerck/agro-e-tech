@@ -1,12 +1,12 @@
 services:
-  quarkus:
-    image: quarkus/agro-e-tech-jvm:latest
-    build: .
-    restart: always
-    ports:
-      - 8080:8080
-    links:
-      - mongodb:database
+#  quarkus:
+#    image: quarkus/agro-e-tech-jvm:latest
+#    build: .
+#    restart: always
+#    ports:
+#      - 8080:8080
+#    links:
+#      - mongodb:database
 
   mongodb:
     image: mongo:latest
