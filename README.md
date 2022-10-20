@@ -22,6 +22,7 @@ A aplicação deve ter as seguintes funcionalidades:
   - [Ferramentas necessárias](#ferramentas-necessárias)
   - [Rodando no servidor local](#rodando-no-servidor-local)
   - [Rodando os testes](#rodando-os-testes)
+- [Autores](#autores)
 
   ---
 
@@ -198,7 +199,9 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
     mvn test
   ```
 
-#Autores
+---
+
+## Autores
 
 - [@nathaliamiranda](https://github.com/nathaliamiranda)
 - [@LeandroGoerck](https://www.github.com/LeandroGoerck)
