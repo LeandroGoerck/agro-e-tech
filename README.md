@@ -166,7 +166,7 @@ Para rodar o projeto, você vai precisar instalar as seguintes ferramentas:
 
 ## Rodando no servidor local
 
- - Clone do Projeto e instale as dependências
+ - Clone do Projeto e realize os comandos necessários
 
     - Clone este repositório
     ```bash
